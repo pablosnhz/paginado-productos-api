@@ -26,7 +26,20 @@ const cargarProductos = () => {
         fila.innerHTML = contenido;
         cuerpoTabla.append(fila)
     })
-
-   
+    cargarItemPaginacion() 
 }
+
+const cargarItemPaginacion = () => {
+    document.querySelector('#items').innerHTML= '';
+    for (let index = 0; index < paginas; index++) {
+        const item = document.createElement('li')
+        item.classList= `page-item`
+        const enlace= `<button class="page-link" onclick="click">${index + 1}</button>`
+        item.innerHTML = enlace
+        document.querySelector('#items').append(item)
+    }  
+}
+
+
+
 cargarProductos() 
